@@ -1,0 +1,33 @@
+<div class="container">
+  <h3>Deposit Money</h3>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="depositForm" (ngSubmit)="deposit()" method="post">
+        <div class="row">
+          <div class="col">
+            <label> Your Account Number : </label>
+            <input type="text" value={{savingAccount}} readonly class="form-control" placeholder=""
+              aria-label="your account number">
+          </div>
+          <div class="col">
+            <label>Enter Amount:</label>
+            <input type="text" formControlName="amount" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && fval.amount.errors }" placeholder="Enter amount" />
+            <div *ngIf="submitted && fval.amount.errors" class="invalid-feedback">
+              <div *ngIf="fval.amount.errors.required">Amount is required</div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <label>&nbsp;</label>
+              <button [disabled]="loading" class="btn btn-primary" class="btn btn-info">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                <a (click)="deposit()" style="color: white">Deposit</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h3>Transfer History</h3>
+  <div class="card">
+    <div class="card-body">
+      <ag-grid-angular class="ag-theme-alpine" [rowData]="transferList" [columnDefs]="columnDefs"
+        style="width: auto; height: 500px" [defaultColDef]="defaultColDef" [paginationAutoPageSize]="true"
+        [pagination]="true"></ag-grid-angular>
+    </div>
+  </div>
+</div>
